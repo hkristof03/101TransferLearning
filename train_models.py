@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 from torch import optim, cuda
 import numpy as np
+import pandas as pd
 #Timing utility
 from timeit import default_timer as timer
 
@@ -108,7 +109,6 @@ def train(model,
                 f'complete. {timer() - start:.2f} seconds elapsed in epoch.',
                 end='\r'
             )
-
         # After training loops ends, start validation
         model.epochs += 1
         # Don't need to keep track of gradients
