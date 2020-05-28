@@ -1,5 +1,6 @@
 from dataloader import get_data_loaders
 from models.model_zoo import get_pretrained_model
+import torch
 import torch.nn as nn
 from torch import optim, cuda
 import numpy as np

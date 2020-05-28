@@ -1,5 +1,4 @@
 from torchvision import transforms, datasets
-import torch
 from torch.utils.data import DataLoader, sampler
 
 import os
