@@ -171,22 +171,22 @@ def train(model,
                         f'acc: {100 * valid_acc:.2f}%'
                     )
                     total_time = timer() - overall_start
-                print(
-                    f'{total_time:.2f} total seconds elapsed. '
-                    f'{total_time / (epoch+1):.2f} seconds per epoch.'
-                )
-                # Load the best state dict
-                model.load_state_dict(torch.load(save_file_name))
-                # Attach the optimizer
-                model.optimizer = optimizer
+                    print(
+                        f'{total_time:.2f} total seconds elapsed. '
+                        f'{total_time / (epoch+1):.2f} seconds per epoch.'
+                    )
+                    # Load the best state dict
+                    model.load_state_dict(torch.load(save_file_name))
+                    # Attach the optimizer
+                    model.optimizer = optimizer
 
-                # Format history
-                history = pd.DataFrame(
-                    history,
-                    columns=['train_loss', 'valid_loss', 'train_acc', 'valid_acc']
-                )
+                    # Format history
+                    history = pd.DataFrame(
+                        history,
+                        columns=['train_loss', 'valid_loss', 'train_acc', 'valid_acc']
+                    )
 
-                return model, history
+                    return model, history
 
     # Attach the optimizer
     model.optimizer = optimizer

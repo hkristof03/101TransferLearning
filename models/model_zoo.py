@@ -17,7 +17,6 @@ def get_pretrained_model(model_name):
     n_classes = 102
     # Whether to train on gpu
     train_on_gpu = cuda.is_available()
-    print(f'Train on gpu: {train_on_gpu}')
     # Number of gpus
     if train_on_gpu:
         gpu_count = cuda.device_count()
