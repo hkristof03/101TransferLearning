@@ -24,6 +24,8 @@ def get_pretrained_model(model_name):
         print(f'{gpu_count} gpus detected.')
         if gpu_count > 1:
             multi_gpu = True
+        else:
+            multi_gpu = False
     else:
         multi_gpu = False
 

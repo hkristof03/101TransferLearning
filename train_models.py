@@ -145,7 +145,7 @@ def train(model,
             if (epoch + 1) % print_every == 0:
                 print(
                     f'\nEpoch: {epoch} \tTraining Loss: {train_loss:.4f} \t'
-                    f'Validation Loss: {validation_loss:.4f}'
+                    f'Validation Loss: {valid_loss:.4f}'
                 )
                 print(
                     f'\t\tTraining Accuracy: {100 * train_acc:.2f}%\t '
