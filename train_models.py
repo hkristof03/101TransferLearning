@@ -231,4 +231,4 @@ if __name__ == '__main__':
         print_every=1
     )
 
-    history.to_csv('/artifacts/first_train.csv', index=False)
+    history.to_csv('./artifacts/first_train.csv', index=False)
