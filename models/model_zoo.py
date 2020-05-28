@@ -1,6 +1,6 @@
 from torchvision import models
 from torch import cuda
-
+from torch import nn
 
 def get_pretrained_model(model_name):
     """Retrieve a pre-trained model from torchvision
@@ -14,6 +14,7 @@ def get_pretrained_model(model_name):
         model (PyTorch model): cnn
 
     """
+    n_classes = 102
     # Whether to train on gpu
     train_on_gpu = cuda.is_available()
     print(f'Train on gpu: {train_on_gpu}')

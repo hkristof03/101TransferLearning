@@ -1,6 +1,10 @@
 from dataloader import get_data_loaders
 from models.model_zoo import get_pretrained_model
-
+import torch.nn as nn
+from torch import optim, cuda
+import numpy as np
+#Timing utility
+from timeit import default_timer as timer
 
 def train(model,
           criterion,
@@ -47,6 +51,17 @@ def train(model,
     except:
         model.epochs = 0
         print(f'Starting Training from scratch.\n')
+
+    train_on_gpu = cuda.is_available()
+    print(f'Train on gpu: {train_on_gpu}')
+    # Number of gpus
+    if train_on_gpu:
+        gpu_count = cuda.device_count()
+        print(f'{gpu_count} gpus detected.')
+        if gpu_count > 1:
+            multi_gpu = True
+    else:
+        multi_gpu = False
 
     overall_start = timer()
     # Main loop
@@ -194,6 +209,9 @@ def train(model,
 
 
 if __name__ == '__main__':
+
+    save_file_name = './models/vgg16-transfer-4pt'
+    checkpoint_path = './models/vgg16-transfer-4.pth'
 
     dataloaders = get_data_loaders()
     model = get_pretrained_model(model_name='resnet50')
